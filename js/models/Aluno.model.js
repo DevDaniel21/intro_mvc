@@ -5,6 +5,10 @@ class AlunoModel {
         this._id = _id !== undefined ? _id : this.generateId();
         this.notas = { ...notas }
         this.media = {}
+
+        for (let materia in this.notas) {
+            this.media[materia] = average(...this.notas[materia])
+        }
     }
 
     generateId() {
