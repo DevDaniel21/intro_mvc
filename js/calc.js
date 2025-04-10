@@ -24,7 +24,7 @@ function average() {
 
 // O opertador spread (...) é usado para passar um array como argumentos para uma função.
 // Nesse caso, o array arguments é passado como argumento para a função sum.
-// console.log(sum(1, 2, 3, 4, 5)) // 15
+//console.log(sum(1, 2, 3, 4, 5)) // 15
 //console.log(average(1, 2, 3, 4, 5)) // 3
 /*
     O operador spread (...) em JavaScript é usado para expandir elementos de um iterável

@@ -6,7 +6,7 @@ class MateriaService {
 
     add(materia) {
         if (!materia instanceof MateriaModel) {
-            throw new Error ('A materia deve ser uma instancia de MateriaModel')
+            throw new Error('A materia deve ser uma instância de MateriaModel')
         }
         this.materias.push(materia)
         this.updateLocalStorage()
@@ -20,12 +20,12 @@ class MateriaService {
         return this.materias.find(materia => materia._id === id)
     }
 
-    getAll () {
+    getAll() {
         return this.materias
     }
 
     updateLocalStorage() {
-        let alunos = JSON.stringify(this.materias)
+        let materias = JSON.stringify(this.materias)
         localStorage.setItem('materias', materias)
     }
 

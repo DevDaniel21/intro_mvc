@@ -1,9 +1,8 @@
 class AlunoModel {
-    //Vai dar os valores nome, _id, começa vazio notas; Mas se não der nota ele vai deixar vazio
-    constructor({ nome, _id, notas } = { notas:{} } ) {
-        this.nome = nome;
+    constructor({ nome, _id, notas } = { notas: {} }) {
+        this.nome = nome
         this._id = _id !== undefined ? _id : this.generateId();
-        this.notas = { ...notas }
+        this.notas = {...notas}
         this.media = {}
 
         for (let materia in this.notas) {

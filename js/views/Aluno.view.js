@@ -1,28 +1,28 @@
-class AlunoView {
+class AlunoView{
     constructor(table, materias) {
         this.tableList = table
         this.tableHeader = this.tableList.querySelector('thead')
         this.tableBody = this.tableList.querySelector('tbody')
         this.materias = materias
-        
-        this.renderHeader()
-    }
 
+        this.renderHeader()
+    } 
+    
     renderHeader() {
         const htmlHeader = document.createElement('tr')
         htmlHeader.innerHTML = '<td>Nome</td>'
-        
+
         const htmlHeaderMaterias = this.materias.map(materia => {
-            return `<td>${materia}</td>`
+            return `<td>${materia.nome}</td>`
         }).join('')
-        
+
         htmlHeader.innerHTML += htmlHeaderMaterias
         this.tableHeader.appendChild(htmlHeader)
     }
 
-    render(alunos) {
+    render(aluno) {
         this.tableBody.innerHTML = ''
-        alunos.forEach(aluno => {
+        aluno.forEach(aluno => {
             let htmlRow = document.createElement('tr')
             htmlRow.innerHTML = `<td>${aluno.nome}</td>`
             let encontrado = false
@@ -32,20 +32,23 @@ class AlunoView {
                 }
             })
 
-            if(encontrado) {
+            if (encontrado) {
                 this.materias.forEach(materia => {
-                    htmlRow.innerHTML += `<td>
-                    ${aluno.media[materia] !== undefined ? aluno.media[materia] :
-                        `<a href="edit.html?id=${aluno._id}">Incluir Nota</a>`}
-                        </td>`
+                    const td = document.createElement('td')
+                    td.innerHTML = (
+                            aluno.media[materia._id] !== undefined && !Number.isNaN(aluno.media[materia._id])
+                        ) ?
+                        aluno.media[materia._id] :
+                        `<a href="edit.html?id=${aluno._id}">Incluir Nota</a>`
+                    htmlRow.appendChild(td)
                 })
             } else {
-                htmlRow.innerHTML += ` <td colspan="${this.materias.length}">
-                <a href="edit.html?id=${aluno._id}">
-                    Incluir Nota
-                </a>
-                </td>`
+                const td = document.createElement('td')
+                td.colSpan = this.materias.length
+                td.innerHTML += `<a href="edit.html?id=${aluno._id}">Incluir Nota</a>`
+                htmlRow.appendChild(td)
             }
+
             this.tableBody.appendChild(htmlRow)
         })
     }
