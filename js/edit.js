@@ -19,7 +19,7 @@ const editAlunoController = new EditAlunoController(
     alunoService
 )
 
-document.querySelector("[data-edit-notas]").addEventListener('submit', (e) => {
+document.querySelector("form").addEventListener('submit', (e) => {
     e.preventDefault()
     let nome = document.getElementById('first_name').value
     let notas = {}
