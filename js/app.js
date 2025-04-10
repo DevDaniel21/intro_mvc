@@ -1,4 +1,4 @@
-const materiaService = new materiaService()
+const materiaService = new MateriaService()
 let materias = materiaService.getAll()
 if (materias.length === 0) {
     materiaService.add(new MateriaModel({ nome: 'Back-end 1'}))

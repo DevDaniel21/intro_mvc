@@ -1,11 +1,11 @@
 class MateriaService {
     constructor() {
         this.materias = []
-        this.updateListMateriasFromlocalStorage()
+        this.updateListMateriasFromLocalStorage()
     }
 
     add(materia) {
-        if (!materia instanceof MaterialModel) {
+        if (!materia instanceof MateriaModel) {
             throw new Error ('A materia deve ser uma instancia de MateriaModel')
         }
         this.materias.push(materia)

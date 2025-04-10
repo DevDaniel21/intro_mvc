@@ -1,13 +1,13 @@
-class MaterialModel {
+class MateriaModel {
     constructor({ nome, _id}) {
         this.nome = nome
         this._id = _id !== undefined ? _id : this.generateId()
     }
 
     generateId() {
-        MaterialModel.maxId += 1
-        return MaterialModel.maxId
+        MateriaModel.maxId += 1
+        return MateriaModel.maxId
     }
 }
 
-MaterialModel.maxId = 0
+MateriaModel.maxId = 0

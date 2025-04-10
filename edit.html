@@ -52,7 +52,7 @@
         Detalhe do Aluno
       </h2>
 
-      <form class="form-add">
+      <form class="form-add" data-edit-form>
         <div class="row">
           <div class="input-field col s12">
             <input
@@ -66,47 +66,16 @@
           <div class="input-field col s12">
               <p>Notas por matéria</p>
           </div>
-          <div class="input-field col s4">
-            <input
-              id="materia"
-              type="text"
-              class="validate"
-            />
+          <div data-edit-notas>
+
           </div>
-          <div class="input-field col s2">
-            <input
-              id="nota_materia_1"
-              type="text"
-              class="validate"
-            />
-          </div>
-          <div class="input-field col s2">
-            <input
-              id="nota_materia_2"
-              type="text"
-              class="validate"
-            />
-          </div>
-          <div class="input-field col s2">
-            <input
-              id="nota_materia_3"
-              type="text"
-              class="validate"
-            />
-          </div>
-          <div class="input-field col s2">
-            <input
-              id="nota_materia_4"
-              type="text"
-              class="validate"
-            />
-          </div>
-         
-          <div class="input-field col s12">
-            <a class="btn" href="index.html">Cancelar</a>
-            <button class="btn" type="submit" name="action">
-                Cadastrar
-              </button>
+          <div class="row col s12">
+            <div class="input-field col s12">
+              <a class="btn" href="index.html">Cancelar</a>
+              <button class="btn" type="submit" name="action">
+                  Cadastrar
+                </button>
+            </div>
           </div>
         </div>
       </form>
@@ -114,16 +83,12 @@
     </div>
 
     <script src="js/calc.js"></script>
+    <script src="js/models/Materia.model.js"></script>
     <script src="js/Models/Aluno.model.js"></script>
+    <script src="js/Services/Materia.service.js"></script>
     <script src="js/Services/Aluno.service.js"></script>
-
-    <script>
-      const alunoService = new AlunoService();
-      const paramsString = window.location.search;
-      const URLParams = new URLSearchParams(paramsString);
-      const alunoId = parseInt(URLParams.get("id"));
-      let aluno = alunoService.searchById(alunoId);
-      document.getElementById('first_name').value = aluno.nome;
-    </script>
+    <script src="js/views/EditAluno.view.js"></script>
+    <script src="js/controllers/EditAluno.controller.js"></script>
+    <script src="js/edit.js"></script>
   </body>
 </html>
